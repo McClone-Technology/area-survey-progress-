@@ -1,0 +1,10 @@
+{
+  "regions": [
+    { "name": "Colorado",                "percent": 0 },
+    { "name": "Hawaii",                  "percent": 0 },
+    { "name": "Northern California/Nevada", "percent": 0 },
+    { "name": "Utah",                    "percent": 0 },
+    { "name": "Washington/Oregon",       "percent": 0 },
+    { "name": "Corporate",               "percent": 0 }
+  ]
+}
