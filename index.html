@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Area Completion — McClone Construction</title>
+  <title>AI Survey Completion — McClone Construction</title>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -68,7 +68,6 @@
     .region-pct {
       font-size: 13px;
       font-weight: 600;
-      color: #5a6e4a;
       min-width: 36px;
       text-align: right;
     }
@@ -83,7 +82,6 @@
     .bar-fill {
       height: 100%;
       border-radius: 5px;
-      background: #5a6e4a;
       transition: width 0.7s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
@@ -109,9 +107,7 @@
       .eyebrow { color: #a0906c; }
       h1 { color: #f0ede6; }
       .region-name { color: #f0ede6; }
-      .region-pct { color: #88a070; }
       .bar-track { background: #2a2926; }
-      .bar-fill { background: #6e8a5a; }
       .divider { border-color: #2e2d2a; }
       .footer { color: #6a6860; }
     }
@@ -120,13 +116,22 @@
 <body>
   <div class="card">
     <p class="eyebrow">McClone Construction</p>
-    <h1>Area Completion</h1>
+    <h1>AI Survey Completion</h1>
     <div id="regions"></div>
     <hr class="divider" />
     <p class="footer" id="footer"></p>
   </div>
 
   <script>
+    const COLORS = [
+      { bar: '#3a6fa8', label: '#2d5887' },  /* Colorado     — steel blue   */
+      { bar: '#c0773a', label: '#9a5e2c' },  /* Hawaii       — warm amber   */
+      { bar: '#4e9e6e', label: '#357a52' },  /* N. Cal/Nev   — sage green   */
+      { bar: '#8a5bbf', label: '#6e43a0' },  /* Utah         — purple       */
+      { bar: '#3a9eaa', label: '#287880' },  /* Wash/Oregon  — teal         */
+      { bar: '#b84c4c', label: '#943a3a' },  /* Corporate    — terracotta   */
+    ];
+
     fetch('data.json?v=' + Date.now())
       .then(r => r.json())
       .then(data => {
@@ -134,16 +139,17 @@
 
         data.regions.forEach((region, i) => {
           const pct = Math.min(100, Math.max(0, region.percent));
+          const color = COLORS[i] || COLORS[0];
 
           const div = document.createElement('div');
           div.className = 'region';
           div.innerHTML = `
             <div class="region-header">
               <span class="region-name">${region.name}</span>
-              <span class="region-pct">${pct}%</span>
+              <span class="region-pct" style="color:${color.label}">${pct}%</span>
             </div>
             <div class="bar-track">
-              <div class="bar-fill" style="width: 0%" data-target="${pct}"></div>
+              <div class="bar-fill" style="width:0%;background:${color.bar}" data-target="${pct}"></div>
             </div>
           `;
           container.appendChild(div);
