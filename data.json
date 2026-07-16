@@ -3,7 +3,7 @@
   "regions": [
     { "name": "Colorado",                    "percent": 67 },
     { "name": "Hawaii",                      "percent": 59 },
-    { "name": "Northern California/Nevada",  "percent": 92 },
+    { "name": "Northern California/Nevada",  "percent": 94 },
     { "name": "Utah",                        "percent": 96 },
     { "name": "Washington/Oregon",           "percent": 100 },
     { "name": "Corporate",                   "percent": 59 }
