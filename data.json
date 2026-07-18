@@ -2,10 +2,10 @@
   "updated": "July 17, 2026",
   "regions": [
     { "name": "Colorado",                    "percent": 93 },
-    { "name": "Hawaii",                      "percent": 95 },
+    { "name": "Hawaii",                      "percent": 100 },
     { "name": "Northern California/Nevada",  "percent": 100 },
     { "name": "Utah",                        "percent": 100 },
     { "name": "Washington/Oregon",           "percent": 100 },
-    { "name": "Corporate",                   "percent": 68 }
+    { "name": "Corporate",                   "percent": 73 }
   ]
 }
